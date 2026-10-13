@@ -5,3 +5,4 @@ CREATE TABLE products (
 );
 
 ALTER TABLE orders ADD COLUMN product_id integer REFERENCES products (id);
+-- audit: status defaults to pending for new orders
