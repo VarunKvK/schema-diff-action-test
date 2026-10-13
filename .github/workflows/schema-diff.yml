@@ -1,0 +1,18 @@
+name: Schema diff
+on:
+  pull_request:
+    paths:
+      - "**/migrations/**/*.sql"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  schema-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: VarunKvK/dbdiagramr/actions/pr-schema-diff-erd@main
